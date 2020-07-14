@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulario de contacto</title>
+    <title>Formulario de peticion de productos</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
 
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/script.js"></script>
 </head>
 <body>
 
     <section class="form_wrap">
-
+<!---Este formulario permite enviar solicitudes a los compradores, llenando con nombre
+       departamento, correo, telefono y el mensaje que desean enviar-->
         <section class="cantact_info">
             <section class="info_title">
                 <span class="fa fa-user-circle"></span>
@@ -27,8 +28,8 @@
             </section>
         </section>
 
-        <form action="enviar.php" method="post" class="form_contact">
-            <h2>Envia un mensaje</h2>
+        <form action="" method="" class="form_contact">
+            <h2>Solicitud de productos</h2>
             <div class="user_info">
                 <label for="names">Nombres *</label>
                 <input type="text" id="names" name="nombre" required>
@@ -39,10 +40,13 @@
                 <label for="email">Correo electronico *</label>
                 <input type="text" id="email" name="correo" required>
 
+                <label for="departamento">Departamento *</label>
+                <input type="text" id="departamento" name="departamento" required>
+
                 <label for="mensaje">Mensaje *</label> 
                 <textarea id="mensaje" name="mensaje" required></textarea>
 
-                <input type="submit" value="Enviar Mensaje" id="btnSend">
+                <input type="button" value="Enviar Mensaje" id="btnSend" onclick="window.open('../html/enviarMensaje.html', '_shelf')" >
             </div>
         </form>
 

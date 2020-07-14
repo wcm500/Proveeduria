@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title></title> 
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+	<link rel="stylesheet" href="../css/estilosLogin.css">
+	
+
+</head>  
+
+<!---Formulario para inciar session el usuario, con los diferentes roles.-->
+<body>
+    <form class="formulario">
+    
+    <h1>Login</h1>
+     <div class="contenedor">
+     
+     
+         
+         <div class="input-contenedor">
+         <i class="fas fa-envelope icon"></i>
+         <input type="text" id = "correo" placeholder="Correo Electronico">
+         
+         </div>
+         
+         <div class="input-contenedor">
+        <i class="fas fa-key icon"></i>
+         <input type="password" id = "contrasena" placeholder="Contraseña" >
+         
+         </div>
+         <input type="button" id ="inicio" value="Login" class="button" onclick = "login()">
+         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+         <p>¿No tienes una cuenta? <a class="link" href="../html/registrarvista.html">Registrate </a></p>
+     </div>
+     <script> src = "../js/jquery-3.2.1.js"</script>
+     
+    
+    </form>
+
+    <!--Este metodo sirve para los ingresar los diferntes usuarios al sistema
+                y valir el login mediante lo ingresado en las cajas de texto-->
+    <script>
+         
+    
+        var fallos = 0;
+
+        function login(){
+
+            if(document.getElementById("correo").value == 'pmartinez248@gmail.com' && document.getElementById("contrasena").value == 'pmartinez248'){
+                alert ("Ha ingresado al sistema");
+                window.open("../html/formularioProductos.html","_self");
+            }else if (document.getElementById("correo").value == 'ohernandez123@gmail.com' && document.getElementById("contrasena").value == 'ohernandez123') {
+                window.open("../html/paneldeControl.html","_self");
+            }else if (document.getElementById("correo").value == 'vsofia@gmail.com' && document.getElementById("contrasena").value == 'vsofia123') {
+                window.open("../html/paneldeControlJefe","_self");
+            }
+            else{
+                
+                fallos ++;
+                alert ("Incoreecto no existe este usuario " + "ha fallado: " + fallos);
+            }
+        }
+
+
+    
+
+        </script>
+</body>
+</html>
