@@ -30,7 +30,7 @@
          <input type="password" id = "contrasena" placeholder="Contraseña" >
          
          </div>
-         <input type="button" id ="inicio" value="Login" class="button" onclick = "login()">
+         <input type="button" id ="inicio" value="Login" class="button" onclick = "login()"> <!--Boton para entrar al menu-->
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="../html/registrarvista.html">Registrate </a></p>
      </div>
@@ -50,16 +50,16 @@
 
             if(document.getElementById("correo").value == 'pmartinez248@gmail.com' && document.getElementById("contrasena").value == 'pmartinez248'){
                 alert ("Ha ingresado al sistema");
-                window.open("../html/formularioProductos.html","_self");
+                window.open("../html/menuUsuario.html","_self"); //Boton para entrar al menu
             }else if (document.getElementById("correo").value == 'ohernandez123@gmail.com' && document.getElementById("contrasena").value == 'ohernandez123') {
-                window.open("../html/paneldeControl.html","_self");
+                window.open("../html/paneldeControl.html","_self");  //Boton para entrar al menu
             }else if (document.getElementById("correo").value == 'vsofia@gmail.com' && document.getElementById("contrasena").value == 'vsofia123') {
-                window.open("../html/paneldeControlJefe","_self");
+                window.open("../html/paneldeControlJefe","_self");  //Boton para entrar al menu
             }
             else{
                 
                 fallos ++;
-                alert ("Incoreecto no existe este usuario " + "ha fallado: " + fallos);
+                alert ("Incorrecto no existe este usuario " + "ha fallado: " + fallos);
             }
         }
 
