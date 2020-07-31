@@ -19,11 +19,11 @@
 
         <section class= "mensaje-exito">
             <h1>SU MENSAJE SE ENVIÓ CON ÉXITO</h1>
-            <a href="../html/solicitarProductos.html">Enviar nuevo mensaje</a>
+            <a href="solicitarProductos.php">Enviar nuevo mensaje</a>
             <br>
             <br>
         
-            <a href="../html/loginPrincipal.html">Cerrar Session</a>
+            <a href="../html/loginvista.php">Cerrar Session</a>
         </section>
 
 
@@ -32,3 +32,27 @@
 
 </body>
 </html>
+
+<?php
+   try{
+    $user="root";
+    $pass="";
+    $server="localhost";
+    $db="proveeduria";
+    $con=mysqli_connect($server,$user,$pass);
+    mysqli_select_db($con,$db);
+    echo "<script>
+    alert('Conectado a la base de datos');
+</script>";
+
+
+
+}
+catch(PDOException $e){
+    die("Eror al conectarse con Mysql ");
+}
+
+include 'enviar.php';
+
+
+?>
