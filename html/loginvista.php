@@ -16,21 +16,18 @@
     
     <h1>Login</h1>
      <div class="contenedor">
-     
-     
-         
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" name = "correo" placeholder="Correo Electronico">
+         <input type="text" name = "correo" id = "correo" placeholder="Correo Electronico">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" name = "contrasena" placeholder="Contraseña" >
+         <input type="password" name = "contrasena" id = "contrasena" placeholder="Contraseña" >
          
          </div>
-         <input type="button" id ="inicio" value="Login" class="button" onclick = "login()"> <!--Boton para entrar al menu-->
+         <input type="submit" value="Login" class="button"> <!--Boton para entrar al menu-->
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="../html/registrarvista.php">Registrate </a></p>
      </div>
@@ -41,40 +38,49 @@
 
     <!--Este metodo sirve para los ingresar los diferntes usuarios al sistema
                 y valir el login mediante lo ingresado en las cajas de texto-->
-    <script>
-         
-
-
-
-    
-
-        </script>
 </body>
 </html>
 
+
+<div id = "loginUser">
 <?php
 
 
 /*Conexion */ 
 
-try{
-    $user="root";
-    $pass="";
-    $server="localhost";
-    $db="pruebatarea";
-    $con=mysqli_connect($server,$user,$pass);
-    mysqli_select_db($con,$db);
-    echo "<script>
-    alert('Conectado a la base de datos');
-</script>";
+			$servidor="localhost";
+			$usuario="root";
+			$password="";
+			$bd="proveeduria";
+
+			$conexion=mysqli_connect($servidor,$usuario,$password,$bd);
+			
+			if ($conexion->connect_error){
+				die("Conexión fallida: ". $conexion->connect_error);
+			}
+			if(isset($_POST['correo'], $_POST['contrasena'])){
+				$correo = $_POST['correo'];
+				$contrasena = $_POST['contrasena'];
+				
+				
+				
+				
+				$sql="SELECT * from usuario where correo_usuario='$correo' and contrasena_usuario='$contrasena'";
+				$result=mysqli_query($conexion,$sql);
+
+					if(mysqli_num_rows($result) > 0){
+						
+							header("Location: panelControl_Aprob_Finan.php");
+						
+						}else{
+						echo "<script type='text/javascript'>alert('El correo o contraseña es incorrecto');</script>";
+					}
+			}
 
 
 
 
-}
-catch(PDOException $e){
-    die("Eror al conectarse con Mysql ");
-}
+
 /*
 session_start();
    
@@ -201,5 +207,5 @@ if (isset($_POST['correo']) && isset($_POST['contrasena']) ) {
 
 }
 */
-
 ?>
+</div>
